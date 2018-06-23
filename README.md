@@ -11,11 +11,11 @@ export interface Person {
   foodTaste?: string;
 }
 ```
-And you want to decide if object is valid or not, based on following rules:
-a. Name is required and can't be longer than 20 characters
-b. Address is required.
-c. Age is not negative and less than 100.
-c. Food taste is not constrainted to anything, not required.
+And you want to decide if object is valid or not, based on following rules:  
+a. Name is required and can't be longer than 20 characters  
+b. Address is required.  
+c. Age is not negative and less than 100.  
+c. Food taste is not constrainted to anything, not required.  
 
 
 To create such a validator:
@@ -30,8 +30,9 @@ connst validator: Validator<Person> = ObjectValidator<Person>({
 
 # validating an object
 To validate an object: 
-import {validity} from '@vlr/validity';
+
 ```
+import {validity} from '@vlr/validity';
 function isMyPersonValid(somePerson: Person): bool {
   const validate: Validate<Person> = validity(validator).validate;
   const result: Validation<Person> = validate(somePerson);
@@ -41,7 +42,7 @@ function isMyPersonValid(somePerson: Person): bool {
 
 
 # getting validation messages for fields
-To get the messages, you need to provide a function to convert predefined constant into your localized messages.
+To get the messages, you need to provide a function converting predefined constants into your localized messages.
 ```
 import {message} from '@vlr/validity';
 function createMessage(msg: message, ...params: string[]): string {
@@ -69,14 +70,13 @@ export interface Vehicle {
 }
 
 const vehicleValidator = ObjectValidator<Vehicle>({
-  licencePlate: // some complex validation here,
+  licencePlate: // some complex custom validation here,
   driver: [required, personValidator]
   passenger: personValidator
 });
 ```
 
-If passenger is absent, then result.passenger._valid => true;
-If passenger is present, then _valid flag is calculated by validation rules.
+Note: when passenger is null, then result.passenger._valid will be evaluated to true, otherwize it is calculated by validation rules.
 
 # nesting arrays
 ```
