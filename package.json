@@ -1,7 +1,7 @@
 {
-  "name": "tslib-seed",
+  "name": "@vlr/validity",
   "version": "1.0.0",
-  "description": "update this",
+  "description": "very simple validation library",
   "files": [
     "src",
     "build/src",
@@ -17,7 +17,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/repinvv/tslib-seed.git"
+    "url": "git+https://github.com/repinvv/validity.git"
   },
   "devDependencies": {
     "@types/chai": "^4.0.10",
