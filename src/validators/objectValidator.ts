@@ -2,14 +2,14 @@ import { Validator, Validators } from "../types/validator";
 import { Validation } from "../types/validation";
 import { createMessage } from "../types/createMessage";
 import { messageType } from "../types/messageType";
-
+import {keys} from "@vlr";
 export type ValidatorConfig<T> = {
   [P in keyof T]?: Validators<T[P]>
 };
 
 
 export function objectValidator<T>(config: ValidatorConfig<T>): Validator<T> {
-
+  const k = keys(config);
 }
 
 interface Vehicle {
