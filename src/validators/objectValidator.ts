@@ -1,47 +1,25 @@
 import { Validator, Validators } from "../types/validator";
 import { Validation } from "../types/validation";
 import { createMessage } from "../types/createMessage";
-import { messageType } from "../types/messageType";
-import {keys} from "@vlr";
+import { keys, values, get } from "@vlr/map-tools/objectMap";
+import { validate } from "../validity";
+import { all } from "@vlr/array-tools";
+
 export type ValidatorConfig<T> = {
   [P in keyof T]?: Validators<T[P]>
 };
 
-
 export function objectValidator<T>(config: ValidatorConfig<T>): Validator<T> {
-  const k = keys(config);
+  const configKeys = keys(config);
+  return function (obj: T, message: createMessage): Validation<T> {
+    if (!obj) { return <any>{ _valid: true }; }
+    const result: any = {};
+    configKeys.forEach((key: string) => {
+      const validator: any = get(config, key);
+      const field: any = get(obj, key);
+      result[key] = validate(validator, field, message);
+    });
+    result._valid = all(values(result), r => r._valid);
+    return result;
+  };
 }
-
-interface Vehicle {
-  driver: Person;
-  passengers: Person[];
-}
-
-interface Person {
-  age: number;
-  name: string;
-}
-
-function required(n: any, message?: createMessage): Validation<any> {
-    const _valid = n !== null && n !== undefined && n !== "";
-    return {
-      _valid,
-      _messages: _valid ? null : message && [message("validation.required")]
-    };
-}
-
-function makeMessage(message: createMessage, type: messageType, ...params: any[]): string[] {
-  return message && [message(type, ...params)];
-}
-
-
-
-let b = objectValidator<Person>({
-  age: required
-});
-let a = objectValidator<Vehicle>({
-
-});
-
-
-b.passengers[0].age;

@@ -21,10 +21,10 @@ c. Food taste is not constrainted to anything, not required.
 To create such a validator:
 ```
 import {Validator, ObjectValidator, requred, maxLength, equalOrMoreThan, lessThan} from '@vlr/validity'
-connst validator: Validator<Person> = ObjectValidator<Person>({
+const validator: Validator<Person> = ObjectValidator<Person>({
   name: [required, maxLength(20)],
   address: required,
-  age: [equalOrMoreThan(0), lessThan(100)]
+  age: [equalOrMore(0), lessThan(100)]
 });
 ```
 

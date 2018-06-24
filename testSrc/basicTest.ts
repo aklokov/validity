@@ -1,14 +1,34 @@
 import { expect } from "chai";
-import { basicFunction } from "../src";
+import { Validator, objectValidator, required, maxLength, minLength, validity } from "../src";
+import { equalOrMore, lessThan } from "../src/validators/numbers";
 
-describe("basic function", function (): void {
-  it("should return sum of two numbers", function (): void {
+describe("basic validation", function (): void {
+  it("should return valid", function (): void {
     // arrange
+    interface Person {
+      name: string;
+      address: string;
+      age: number;
+      foodTaste?: string;
+    }
+
+    const validator: Validator<Person> = objectValidator<Person>({
+      name: [required, maxLength(20), minLength(3)],
+      address: required,
+      age: [equalOrMore(0), lessThan(100)]
+    });
 
     // act
-    const result = basicFunction(2, 3);
+    const result = validity(validator).validate({
+      name: "Alex",
+      address: "123123",
+      age: 99
+    });
 
     // assert
-    expect(result).to.be.equal(5);
+    expect(result._valid).equals(true);
+    expect(result.address._valid).equals(true);
+    expect(result.age._valid).equals(true);
+    expect(result.foodTaste).equals(undefined);
   });
 });

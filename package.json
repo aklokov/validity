@@ -35,6 +35,8 @@
     "typescript": "^2.6.2"
   },
   "dependencies": {
-    "@vlr/map-tools": "^1.0.13"
+    "@vlr/array-tools": "^1.0.10",
+    "@vlr/map-tools": "^1.0.13",
+    "@vlr/object-tools": "^1.0.4"
   }
 }
