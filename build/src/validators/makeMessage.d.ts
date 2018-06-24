@@ -1,2 +1,2 @@
 import { createMessage, messageType } from "../types";
-export declare function makeMessage(valid: boolean, message: createMessage, type: messageType): string[];
+export declare const makeMessage: (_valid: boolean, message: createMessage, type: messageType) => string[];

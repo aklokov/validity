@@ -1,0 +1,1 @@
+{"version":3,"file":"makeMessage.js","sourceRoot":"","sources":["../../src/makeMessage.ts"],"names":[],"mappings":";;AAEA,qBAA4B,KAAc,EAAE,OAAsB,EAAE,IAAY;IAC9E,IAAI,KAAK,EAAE;QAAE,OAAO,IAAI,CAAC;KAAE;IAC3B,IAAI,CAAC,OAAO,EAAE;QAAE,OAAO,IAAI,CAAC;KAAE;IAC9B,OAAO,CAAC,OAAO,CAAM,IAAI,CAAC,CAAC,CAAC;AAC9B,CAAC;AAJD,kCAIC"}

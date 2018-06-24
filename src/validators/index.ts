@@ -4,3 +4,4 @@ export * from "./required";
 export * from "./stringLength";
 export * from "./numbers";
 export * from "./strings";
+export * from "./or";
