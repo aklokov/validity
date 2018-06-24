@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const makeMessage_1 = require("./makeMessage");
 const object_tools_1 = require("@vlr/object-tools");
+const or_1 = require("./or");
 const numericRegex = /^[0-9]*$/;
 function numeric(value, message) {
     const _valid = valid(value, numericRegex);
@@ -11,15 +12,16 @@ function numeric(value, message) {
     };
 }
 exports.numeric = numeric;
-const alphanumericRegex = /^[a-zA-Z0-9]*$/;
-function alphanumeric(value, message) {
-    const _valid = valid(value, alphanumericRegex);
+const alphaRegex = /^[a-zA-Z]*$/;
+function alpha(value, message) {
+    const _valid = valid(value, alphaRegex);
     return {
         _valid,
-        _messages: makeMessage_1.makeMessage(_valid, message, "validation.alphanumeric")
+        _messages: makeMessage_1.makeMessage(_valid, message, "validation.alpha")
     };
 }
-exports.alphanumeric = alphanumeric;
+exports.alpha = alpha;
+exports.alphanumeric = or_1.or(alpha, numeric, "validation.alphanumeric");
 function regex(reg, customMessage) {
     return function (value, message) {
         const _valid = valid(value, reg);
