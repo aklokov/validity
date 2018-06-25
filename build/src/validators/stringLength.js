@@ -7,7 +7,7 @@ function maxLength(length) {
         const _valid = !object_tools_1.isString(value) || value.length <= length;
         return {
             _valid,
-            _messages: makeMessage_1.makeMessage(_valid, message, "validation.maxLength"),
+            _messages: makeMessage_1.makeMessage(_valid, message, "validation.maxLength", length),
             _maxLength: length
         };
     };
@@ -18,7 +18,7 @@ function minLength(length) {
         const _valid = object_tools_1.isString(value) && value.length >= length;
         return {
             _valid,
-            _messages: makeMessage_1.makeMessage(_valid, message, "validation.minLength")
+            _messages: makeMessage_1.makeMessage(_valid, message, "validation.minLength", length)
         };
     };
 }
@@ -28,7 +28,7 @@ function exactLength(length) {
         const _valid = object_tools_1.isString(value) && value.length === length;
         return {
             _valid,
-            _messages: makeMessage_1.makeMessage(_valid, message, "validation.exactLength"),
+            _messages: makeMessage_1.makeMessage(_valid, message, "validation.exactLength", length),
             _maxLength: length
         };
     };

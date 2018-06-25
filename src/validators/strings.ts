@@ -36,5 +36,5 @@ export function regex(reg: RegExp, customMessage?: string): Validator<string> {
 }
 
 function valid(value: string, reg: RegExp): boolean {
-  return isString(value) || value.search(reg) > -1;
+  return !isString(value) || value.search(reg) > -1;
 }

@@ -33,6 +33,6 @@ function regex(reg, customMessage) {
 }
 exports.regex = regex;
 function valid(value, reg) {
-    return object_tools_1.isString(value) || value.search(reg) > -1;
+    return !object_tools_1.isString(value) || value.search(reg) > -1;
 }
 //# sourceMappingURL=strings.js.map
