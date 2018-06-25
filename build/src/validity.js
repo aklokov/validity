@@ -14,7 +14,7 @@ function validate(validators, obj, message) {
     result._valid = array_tools_1.all(validations, v => v._valid);
     result._messages = array_tools_1.flatMap(validations, v => v._messages);
     result._required = validations.some(v => v._required);
-    result._maxLength = Math.min(...lengthSpecified) || 0;
+    result._maxLength = lengthSpecified.length ? Math.min(...lengthSpecified) : null;
     return result;
 }
 exports.validate = validate;
