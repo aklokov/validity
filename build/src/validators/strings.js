@@ -2,12 +2,16 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const makeMessage_1 = require("./makeMessage");
 const object_tools_1 = require("@vlr/object-tools");
+const object_tools_2 = require("@vlr/object-tools");
 function numeric(value, message) {
-    return regex(/^[0-9]*$/, "validation.alphanumeric")(value, message);
+    if (object_tools_2.isNumber(value)) {
+        return { _valid: true };
+    }
+    return regex(/^[0-9]*$/, "validation.numeric")(value, message);
 }
 exports.numeric = numeric;
 function alpha(value, message) {
-    return regex(/^[a-zA-Z]*$/, "validation.alphanumeric")(value, message);
+    return regex(/^[a-zA-Z]*$/, "validation.alpha")(value, message);
 }
 exports.alpha = alpha;
 function alphanumeric(value, message) {

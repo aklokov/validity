@@ -1,7 +1,7 @@
 import { ValueType } from "./valueType";
 
 export type BasicValidation = {
-  _valid?: boolean,
+  _valid: boolean,
   _messages?: string[],
   _required?: boolean,
   _maxLength?: number

@@ -3,13 +3,18 @@ import { BasicValidation } from "../types/validation";
 import { Validator } from "../types/validator";
 import { makeMessage } from "./makeMessage";
 import { isString } from "@vlr/object-tools";
+import { isNumber } from "@vlr/object-tools";
 
-export function numeric(value: string, message: createMessage): BasicValidation {
-  return regex(/^[0-9]*$/, "validation.alphanumeric")(value, message);
+export function numeric(value: string | number, message: createMessage): BasicValidation {
+  if (isNumber(value)) {
+    return { _valid: true };
+  }
+
+  return regex(/^[0-9]*$/, "validation.numeric")(<string>value, message);
 }
 
 export function alpha(value: string, message: createMessage): BasicValidation {
-  return regex(/^[a-zA-Z]*$/, "validation.alphanumeric")(value, message);
+  return regex(/^[a-zA-Z]*$/, "validation.alpha")(value, message);
 }
 
 export function alphanumeric(value: string, message: createMessage): BasicValidation {
