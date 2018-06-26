@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function makeMessage(valid, message, type, ...params) {
     if (valid) {
-        return null;
+        return { _valid: true };
     }
     if (!message) {
-        return null;
+        return { _valid: false };
     }
-    return [message(type, params)];
+    return { _valid: false, _messages: [message(type, ...params)] };
 }
 exports.makeMessage = makeMessage;
 //# sourceMappingURL=makeMessage.js.map

@@ -11,7 +11,7 @@ export type ValidatorConfig<T> = {
 
 export function objectValidator<T>(config: ValidatorConfig<T>): Validator<T> {
   const configKeys = keys(config);
-  return function (obj: T, message: createMessage): Validation<T> {
+  return function (obj: T, message?: createMessage): Validation<T> {
     if (!obj) { return <any>{ _valid: true }; }
     const result: any = {};
     configKeys.forEach((key: string) => {

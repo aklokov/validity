@@ -20,15 +20,8 @@ function alphanumeric(value, message) {
 exports.alphanumeric = alphanumeric;
 function regex(reg, customMessage) {
     return function (value, message) {
-        const _valid = valid(value, reg);
-        return {
-            _valid,
-            _messages: makeMessage_1.makeMessage(_valid, message, customMessage || "validation.regex")
-        };
+        return makeMessage_1.makeMessage(!object_tools_1.isString(value) || value.search(reg) > -1, message, customMessage || "validation.regex");
     };
 }
 exports.regex = regex;
-function valid(value, reg) {
-    return !object_tools_1.isString(value) || value.search(reg) > -1;
-}
 //# sourceMappingURL=strings.js.map

@@ -5,41 +5,25 @@ import { makeMessage } from "./makeMessage";
 import { isNumber } from "@vlr/object-tools";
 
 export function moreThan(limit: number): Validator<number> {
-  return function (value: number, message: createMessage): BasicValidation {
-    const _valid = isNumber(value) && value > limit;
-    return {
-      _valid,
-      _messages: makeMessage(_valid, message, "validation.moreThan")
-    };
+  return function (value: number, message?: createMessage): BasicValidation {
+    return makeMessage(isNumber(value) && value > limit, message, "validation.moreThan", limit);
   };
 }
 
 export function lessThan(limit: number): Validator<number> {
-  return function (value: number, message: createMessage): BasicValidation {
-    const _valid = isNumber(value) && value < limit;
-    return {
-      _valid,
-      _messages: makeMessage(_valid, message, "validation.lessThan")
-    };
+  return function (value: number, message?: createMessage): BasicValidation {
+    return makeMessage(isNumber(value) && value < limit, message, "validation.lessThan", limit);
   };
 }
 
 export function equalOrMore(limit: number): Validator<number> {
-  return function (value: number, message: createMessage): BasicValidation {
-    const _valid = isNumber(value) && value >= limit;
-    return {
-      _valid,
-      _messages: makeMessage(_valid, message, "validation.equalOrMore")
-    };
+  return function (value: number, message?: createMessage): BasicValidation {
+    return makeMessage(isNumber(value) && value >= limit, message, "validation.equalOrMore", limit);
   };
 }
 
 export function equalOrLess(limit: number): Validator<number> {
-  return function (value: number, message: createMessage): BasicValidation {
-    const _valid = isNumber(value) && value <= limit;
-    return {
-      _valid,
-      _messages: makeMessage(_valid, message, "validation.equalOrLess")
-    };
+  return function (value: number, message?: createMessage): BasicValidation {
+    return makeMessage(isNumber(value) && value <= limit, message, "validation.equalOrLess", limit);
   };
 }

@@ -4,41 +4,25 @@ const makeMessage_1 = require("./makeMessage");
 const object_tools_1 = require("@vlr/object-tools");
 function moreThan(limit) {
     return function (value, message) {
-        const _valid = object_tools_1.isNumber(value) && value > limit;
-        return {
-            _valid,
-            _messages: makeMessage_1.makeMessage(_valid, message, "validation.moreThan")
-        };
+        return makeMessage_1.makeMessage(object_tools_1.isNumber(value) && value > limit, message, "validation.moreThan", limit);
     };
 }
 exports.moreThan = moreThan;
 function lessThan(limit) {
     return function (value, message) {
-        const _valid = object_tools_1.isNumber(value) && value < limit;
-        return {
-            _valid,
-            _messages: makeMessage_1.makeMessage(_valid, message, "validation.lessThan")
-        };
+        return makeMessage_1.makeMessage(object_tools_1.isNumber(value) && value < limit, message, "validation.lessThan", limit);
     };
 }
 exports.lessThan = lessThan;
 function equalOrMore(limit) {
     return function (value, message) {
-        const _valid = object_tools_1.isNumber(value) && value >= limit;
-        return {
-            _valid,
-            _messages: makeMessage_1.makeMessage(_valid, message, "validation.equalOrMore")
-        };
+        return makeMessage_1.makeMessage(object_tools_1.isNumber(value) && value >= limit, message, "validation.equalOrMore", limit);
     };
 }
 exports.equalOrMore = equalOrMore;
 function equalOrLess(limit) {
     return function (value, message) {
-        const _valid = object_tools_1.isNumber(value) && value <= limit;
-        return {
-            _valid,
-            _messages: makeMessage_1.makeMessage(_valid, message, "validation.equalOrLess")
-        };
+        return makeMessage_1.makeMessage(object_tools_1.isNumber(value) && value <= limit, message, "validation.equalOrLess", limit);
     };
 }
 exports.equalOrLess = equalOrLess;
