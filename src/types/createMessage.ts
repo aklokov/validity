@@ -5,6 +5,7 @@ export type createMessage = {
 };
 
 export type messageType = "validation.required"
+  | "validation.invalid"
   | "validation.maxLength"
   | "validation.minLength"
   | "validation.exactLength"

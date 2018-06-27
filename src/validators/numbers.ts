@@ -1,8 +1,8 @@
 import { createMessage } from "../types/createMessage";
 import { BasicValidation } from "../types/validation";
 import { Validator } from "../types/validator";
-import { makeMessage } from "./makeMessage";
 import { isNumber } from "@vlr/object-tools";
+import { makeMessage } from "../makeMessage";
 
 export function moreThan(limit: number): Validator<number> {
   return function (value: number, message?: createMessage): BasicValidation {

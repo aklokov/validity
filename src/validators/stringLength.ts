@@ -1,7 +1,7 @@
 import { createMessage } from "../types/createMessage";
 import { BasicValidation } from "../types/validation";
 import { Validator } from "../types/validator";
-import { makeMessage } from "./makeMessage";
+import { makeMessage } from "../makeMessage";
 import { isString } from "@vlr/object-tools";
 
 export function maxLength(length: number): Validator<string> {

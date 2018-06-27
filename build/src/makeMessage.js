@@ -4,10 +4,8 @@ function makeMessage(valid, message, type, ...params) {
     if (valid) {
         return { _valid: true };
     }
-    if (!message) {
-        return { _valid: false };
-    }
-    return { _valid: false, _messages: [message(type, ...params)] };
+    const msg = message ? message(type, ...params) : type;
+    return { _valid: false, _messages: [msg] };
 }
 exports.makeMessage = makeMessage;
 //# sourceMappingURL=makeMessage.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const makeMessage_1 = require("./makeMessage");
+const makeMessage_1 = require("../makeMessage");
 const object_tools_1 = require("@vlr/object-tools");
 const object_tools_2 = require("@vlr/object-tools");
 function numeric(value, message) {

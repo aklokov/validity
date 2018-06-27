@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const makeMessage_1 = require("./makeMessage");
 const object_tools_1 = require("@vlr/object-tools");
+const makeMessage_1 = require("../makeMessage");
 function moreThan(limit) {
     return function (value, message) {
         return makeMessage_1.makeMessage(object_tools_1.isNumber(value) && value > limit, message, "validation.moreThan", limit);
