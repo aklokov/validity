@@ -17,3 +17,6 @@ test_script:
   - npm --version
   # run tests
   - gulp cover
+  
+# Don't actually build.
+build: off
