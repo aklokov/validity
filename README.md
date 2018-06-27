@@ -49,8 +49,8 @@ function createMessage(msg: message, ...params: string[]): string {
   switch(msg){
 	case 'validation.required':
 		return 'Value is required';
-	case 'validation.equalOrMoreThan':
-		return 'Value should not be equal to {0} or higher'.replace({0}, params[0];
+	case 'validation.equalOrMore':
+		return 'Value should be equal to {0} or higher'.replace({0}, params[0];
 	default:
 	    return 'Value is just invalid'
   }
@@ -87,8 +87,8 @@ export interface Company {
 }
 const companyValidator = objectValidator<Company>({
   title: required,
-  aliases: [required, minElements(2)]
-  employees: [maxElements(100), ArrayValidator<Person>(}]
+  aliases: required,  // also means that array should be not-empty
+  employees: [required, arrayValidator(personValidator)]
 });
 
 const firstEmployeeValid = result.employees[0]._valid;
