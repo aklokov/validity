@@ -1,6 +1,6 @@
 import { expect } from "chai";
-import { required } from "../src/validators";
-import { testMessage } from "./testMessage";
+import { required } from "../src/validators/required";
+import { testMessage } from "./testSupport";
 
 describe("required", function (): void {
   it("should return valid for constant", function (): void {

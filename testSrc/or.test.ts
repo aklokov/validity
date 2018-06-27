@@ -1,10 +1,21 @@
 import { expect } from "chai";
-import { or } from "../src";
-
-const valid = () => ({ _valid: true });
-const invalid = () => ({ _valid: false });
+import { invalid, valid } from "./testSupport";
+import { or } from "../src/validators/or";
 
 describe("or", function (): void {
+  it("should return second object as a result", function (): void {
+    // arrange
+    const val = {
+      _valid: false,
+      _someFlag: true
+    };
+    // act
+    const result = or<number>(valid, () => val)(1);
+
+    // assert
+    expect(result === val).equals(true);
+  });
+
   it("should return valid if one is valid", function (): void {
     // arrange
 
@@ -25,18 +36,5 @@ describe("or", function (): void {
 
     // assert
     expect(result._valid).equals(false);
-  });
-
-  it("should return second object as a result", function (): void {
-    // arrange
-    const val = {
-      _valid: false,
-      _someFlag: true
-    };
-    // act
-    const result = or(valid, () => val)(1);
-
-    // assert
-    expect(result === val).equals(true);
   });
 });

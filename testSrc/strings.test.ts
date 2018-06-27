@@ -1,6 +1,6 @@
 import { expect } from "chai";
-import { testMessage } from "./testMessage";
-import { numeric, alphanumeric, alpha, regex } from "../src";
+import { testMessage } from "./testSupport";
+import { numeric, alphanumeric, alpha, regex } from "../src/validators/strings";
 
 describe("numeric", function (): void {
   it("should return valid for number", function (): void {

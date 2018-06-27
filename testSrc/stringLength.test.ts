@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { maxLength, minLength, exactLength } from "../src";
+import { maxLength, minLength, exactLength } from "../src/validators/stringLength";
 
 describe("maxLength", function (): void {
   it("should return valid for shorter string", function (): void {

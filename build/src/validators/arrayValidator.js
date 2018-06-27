@@ -4,7 +4,7 @@ const validity_1 = require("../validity");
 const array_tools_1 = require("@vlr/array-tools");
 function arrayValidator(validator) {
     return function (obj, message) {
-        if (!Array.isArray) {
+        if (!Array.isArray(obj)) {
             return { _valid: true };
         }
         const validation = obj.map(item => validity_1.validate(validator, item, message));

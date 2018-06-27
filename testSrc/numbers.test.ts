@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { moreThan, equalOrMore, lessThan, equalOrLess } from "../src";
+import { moreThan, equalOrMore, lessThan, equalOrLess } from "../src/validators/numbers";
 
 describe("moreThan", function (): void {
   it("should return valid for higher number", function (): void {
