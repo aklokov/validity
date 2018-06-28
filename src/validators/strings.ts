@@ -1,7 +1,7 @@
 import { createMessage } from "../types/createMessage";
 import { BasicValidation } from "../types/validation";
 import { Validator } from "../types/validator";
-import { makeMessage } from "../makeMessage";
+import { makeValidation } from "../makeMessage";
 import { isString } from "@vlr/object-tools";
 import { isNumber } from "@vlr/object-tools";
 
@@ -20,6 +20,6 @@ export function alphanumeric(value: string, message?: createMessage): BasicValid
 
 export function regex(reg: RegExp, customMessage?: string): Validator<string> {
   return function (value: string, message?: createMessage): BasicValidation {
-    return makeMessage(!isString(value) || value.search(reg) > -1, message, <any>customMessage || "validation.regex");
+    return makeValidation(!isString(value) || value.search(reg) > -1, message, <any>customMessage || "validation.regex");
   };
 }
