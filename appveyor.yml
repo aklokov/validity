@@ -1,6 +1,6 @@
 # Test against the latest version of this Node.js version
 environment:
-  nodejs_version: "10"
+  nodejs_version: "8"
 
 # Install scripts. (runs after repo cloning)
 install:
@@ -8,7 +8,7 @@ install:
   # - ps: Install-Product node $env:nodejs_version
   # install modules
   - npm install
-  - npm install -g typescript nyc mocha gulp
+  - npm install -g typescript@2.8.3 nyc mocha gulp
 
 # Post-install test scripts.
 test_script:
